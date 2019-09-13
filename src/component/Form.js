@@ -7,22 +7,21 @@ const BannerContainer = styled.div`
     
     .texts{
         margin: 2rem 2rem;
-    
-        h1{
-            color: rgb(76, 166, 245);
-            font-weight: 300;
-            font-size: 2rem;   
-        }
-        h2{
-            color: white;
-            font-weight: 200;
-            font-size: 1.3rem;   
-        }
-        p{
-           color: white;
-           font-weight: 100;
-        }
-    
+    }
+
+    h1{
+        color: rgb(76, 166, 245);
+        font-weight: 300;
+        font-size: 2rem;   
+    }
+    h2{
+        color: white;
+        font-weight: 200;
+        font-size: 1.3rem;   
+    }
+    p{
+       color: white;
+       font-weight: 100;
     }
 `;
 
