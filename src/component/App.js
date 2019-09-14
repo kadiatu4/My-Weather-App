@@ -24,19 +24,23 @@ class App extends React.Component {
     render(){
 
         return (
-            <AppContainer>
-                <Head/>
-                <Form loadWeather={this.getWeather}/>
-      
-                <Weather city={this.state.city}
-                         country={this.state.country}
-                         sunrise={this.state.sunrise}
-                         sunset={this.state.sunset}
-                         timezone={this.state.timezone}
-                         forecastArray={this.state.forecastArray}
-                         error={this.state.error}
-                />
-            </AppContainer>
+                <div>
+                    <Head/>
+                    <AppContainer>
+                        <Form loadWeather={this.getWeather}/>
+            
+                        <Weather city={this.state.city}
+                                country={this.state.country}
+                                sunrise={this.state.sunrise}
+                                sunset={this.state.sunset}
+                                timezone={this.state.timezone}
+                                forecastArray={this.state.forecastArray}
+                                error={this.state.error}
+                        />
+                    </AppContainer>
+
+                </div>
+                
         )
     }
 
