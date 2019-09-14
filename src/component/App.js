@@ -63,7 +63,7 @@ class App extends React.Component {
         if(regexZipcode.test(location)){
             
             //Makes call/requests to the open weather map api 
-            api_call = await fetch( `http://api.openweathermap.org/data/2.5/forecast?zip=${location},US&units=metric&appid=${Api_Key}`);
+            api_call = await fetch( `https://api.openweathermap.org/data/2.5/forecast?zip=${location},US&units=metric&appid=${Api_Key}`);
 
         }
 
@@ -75,7 +75,7 @@ class App extends React.Component {
             var city = splitString[0];
             var country = splitString[1];
 
-            api_call = await fetch( `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${Api_Key}`);
+            api_call = await fetch( `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&appid=${Api_Key}`);
         }
         //Otherwise the input was invalid
         else{
