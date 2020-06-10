@@ -4,8 +4,9 @@ import Weather from "./Weather";
 import Head from "./Head";
 import styled from "styled-components";
 
+// background-color: #1C2331;
 const AppContainer = styled.div`
-    background-color: #1C2331;
+    margin: 2rem 2rem;
 `;
 
 class App extends React.Component {
@@ -24,7 +25,7 @@ class App extends React.Component {
     render(){
 
         return (
-                <div>
+                <div class="container">
                     <Head/>
                     <AppContainer>
                         <Form loadWeather={this.getWeather}/>
@@ -79,7 +80,7 @@ class App extends React.Component {
         }
         //Otherwise the input was invalid
         else{
-            this.setState({error: "Invalid Input. Please enter a valid Zipcode or \"City, Country\""});
+            this.setState({error: "Please enter a valid Zipcode or \"City, Country\""});
             return;
         }
        
@@ -90,7 +91,7 @@ class App extends React.Component {
         //Checks whether the city or zipcode was
         //not found or not
         if(response.cod == '404'){
-            this.setState({error: "Invalid Zipcode or City, Country Entered."});
+            this.setState({error: "Please enter a valid Zipcode or \"City, Country\""});
             return;
         }
         else{
@@ -138,6 +139,8 @@ class App extends React.Component {
                 tempArray[count].push(forecast);
             } 
         });
+
+        console.log(tempArray);
 
         this.setState({
             forecastArray: tempArray,

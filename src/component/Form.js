@@ -1,50 +1,103 @@
 import React from "react";
 import styled from "styled-components";
+import {devices} from "./DeviceSizes";
 
-
-const BannerContainer = styled.div`
-    display: flex;
+const Container = styled.div`
+  
 `;
 
 const Titles = styled.div`
-    margin: 2rem 2rem;
-        
+    margin: 0 1em;
+
     h1{
-        color: rgb(76, 166, 245);
-        font-weight: 300;
-        font-size: 2rem;   
+        
+        font-weight: 300;  
+        color: #3d6098;
+        margin: 1em 0;
+        font-size: 1.8rem;
+
+        @media ${devices.mobile}{
+            font-size: 3.5rem; 
+        }
+
+        @media ${devices.tablet}{
+            font-size: 2rem; 
+            margin: 0.6em 0;
+        }
+        
     }
 
     h2{
-        color: white;
-        font-weight: 200;
-        font-size: 1.3rem;   
+        color: #213159;
+        font-weight: 300;
+        font-size: 1.2rem;  
+        margin: 0.8em 0; 
+
+        @media ${devices.mobile}{
+            font-size: 2rem;  
+            margin: 1.8em 0; 
+        }
+
+        @media ${devices.tablet}{
+            font-size: 1.2rem; 
+            margin: 0.8em 0; 
+        }
     }
 
     p{
-        color: white;
-        font-weight: 100;
+        color: #213159;
+        font-weight: 200;
+        font-size: 1rem;
+        margin-bottom: 1.2em;
+
+
+        @media ${devices.mobile}{
+            font-size: 1.6rem;
+            margin-bottom: 1.5em;
+        }
+
+        @media ${devices.tablet}{
+            font-size: 1rem; 
+            margin: 2em 0; 
+        }
     }
 `;
 
 const FormContainer = styled.div`
-    margin: 2rem 2rem;
-       
+    
     .btn{
-        background-color: #ffbb33;
-        margin-left: 2rem;
+        background-color: #f04b4c;
         color: white;
+        margin: 1em 0;     
+        font-size: 1rem;
+        font-weight: 200;
+
+        @media ${devices.mobile}{
+            font-size: 1rem;
+        }
+
+        @media ${devices.tablet}{
+            font-size: 1rem;  
+        }
     }
 
     input, 
     input[type=text]:focus{
         border: 0;
         border-radius: 0;
-        color: white;
-        background-color: #1C2331;
+        background-color: #e6f2ff;
         border-bottom: 1px solid white;
         font-size: 1rem;
-        font-weight: 100;
+        font-weight: 200;
+        color: #213159;
+
+        @media ${devices.mobile}{  
+            font-size: 1rem;
+        }
+
+        @media ${devices.tablet}{
+            font-size: 1rem;  
+        }
     }
 `;
 
@@ -53,37 +106,33 @@ const FormContainer = styled.div`
 const Form = (props) => {
 
     return(
-        <BannerContainer>
+
+        <Container>
             <div class="row">
-
-                <div class="col-7">
-                    <Titles> 
-                        <h1>My Weather App </h1>
-                        <h2>5 Day 3 Hour Forecast</h2>
-                        <p>Enter a <strong>Zipcode</strong> or <strong>City, Country </strong>and we will provide you with a
-                            5-day weather forecast for that location.
-                        </p>
-                    </Titles>
-                </div>
-            
-                <div class="col-5">
-                    <FormContainer>
-
-                        <div class="form-group"> 
-
-                            <form onSubmit={props.loadWeather}>
-                                <div class="form-inline">  
-                                    <input type="text" class="form-control" name="location" placeholder="Enter city and country, or zipcode " />
-                                    <button type="submit" class="btn">Get Weather</button>
-                                </div>
-                            </form>
-
-                        </div>
-
-                    </FormContainer>
-                </div>
+                <Titles> 
+                    <h1>My Weather App </h1>
+                    <h2>5 Day 3 Hour Forecast</h2>
+                    <p>Enter a <strong>Zipcode</strong> or <strong>City, Country </strong>and we will provide you with a
+                        5-day weather forecast for that location.
+                    </p>
+                </Titles>
             </div>
-        </BannerContainer> 
+        
+        
+            <FormContainer>
+            
+                <form onSubmit={props.loadWeather}>
+
+                    <input class="form-control" type="text" name="location" placeholder="Search..." />
+                    <button type="submit" class="btn">Get Weather</button>
+                
+                </form> 
+                
+
+            </FormContainer>
+            
+        </Container>
+       
     )
 
 };
